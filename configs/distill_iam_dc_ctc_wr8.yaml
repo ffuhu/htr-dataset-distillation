@@ -1,0 +1,44 @@
+defaults:
+  - data@real_dataset: IAM
+  - models@inner_model: CRNN_CTC_reduced_wr8
+  - loss_functions@loss_function: CTCLoss
+
+  - _self_
+
+# --- DC-CTC on IAM, wr8 protocol consistent with GW/READ2016/LAM
+# (distill_{gw,read2016,lam}_dc_ctc.yaml): full training pool (6161 lines), wr8 and 2000
+# iterations. ---
+real_dataset:
+  splits: [train]
+  shuffle: True
+
+channels: 1
+batch_size: ${matching_batch_size}
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+K: 100
+
+cluster_file: null
+outer_iterations: 2000
+matching_batch_size: 32
+
+inner_steps_every_n: 10
+inner_steps_count: 5
+
+reinit_every_n: 200
+
+syn_lr: 0.1
+inner_lr: 1.0e-3
+
+log_every: 50
+
+seed: 42
+
+buffer_path: outputs/distill/iam_dc_ctc_wr8.pt

@@ -1,0 +1,34 @@
+defaults:
+  - augmentation@img_transform: no_aug
+  - prep@prepare_data: htr_lines
+
+  - _self_
+
+_target_: data.TranscriptionCTC.HFCTC
+
+collate_fn:
+  _target_: data.TranscriptionCTC.collate_fn
+  _partial_: True
+
+root: parquet
+data_files:
+  train: datasets/GW/parquet/train.parquet
+  val: datasets/GW/parquet/val.parquet
+  test: datasets/GW/parquet/test.parquet
+
+splits: ???
+
+initial_symbols: {<PAD>: 0, <CTC>: 1}
+special_symbols: [<PAD>, <CTC>]
+
+map_fn_kwargs:
+  fixed_height: 64
+  tokenize: True
+
+shuffle: False # Set to true on training split
+num_workers: 8
+persistent_workers: False
+batch_size: ${batch_size}
+
+stats_file: GW/${.splits[0]}
+vocabulary_file: GW/${.splits[0]}

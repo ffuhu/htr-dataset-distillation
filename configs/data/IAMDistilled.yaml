@@ -1,0 +1,20 @@
+defaults:
+  - .@train_datasets.synthetic: IAMSynthetic
+
+  - .@val_datasets.iam: IAM
+
+  - .@test_datasets.iam: IAM
+
+  - _self_
+
+_target_: data.DataModule
+
+train_datasets:
+  synthetic:
+    shuffle: True
+val_datasets:
+  iam:
+    splits: [val_1, val_2]
+test_datasets:
+  iam:
+    splits: [test]

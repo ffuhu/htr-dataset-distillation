@@ -1,0 +1,5 @@
+_target_: torch.optim.SGD
+params: ???
+lr: ???
+momentum: 0.0
+weight_decay: 0.0

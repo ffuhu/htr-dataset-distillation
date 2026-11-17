@@ -1,0 +1,15 @@
+defaults:
+  - data@real_dataset: LAM
+
+  - _self_
+
+real_dataset:
+  splits: [train]
+  shuffle: False
+
+channels: 1
+batch_size: 1
+
+k: 100
+seed: 42
+output_file: data/LAM/text_clusters_k100.yaml

@@ -1,0 +1,20 @@
+defaults:
+  - .@train_datasets.synthetic: READ2016Synthetic
+
+  - .@val_datasets.read2016: READ2016
+
+  - .@test_datasets.read2016: READ2016
+
+  - _self_
+
+_target_: data.DataModule
+
+train_datasets:
+  synthetic:
+    shuffle: True
+val_datasets:
+  read2016:
+    splits: [val]
+test_datasets:
+  read2016:
+    splits: [test]

@@ -1,0 +1,12 @@
+iam 308 $RUNS_DIR/budget_buffers/x1_iam_dm_k308_lr0.1_it289.pt 42 x1B_dm_lr0.1_u30
+iam 308 $RUNS_DIR/budget_buffers/x1_iam_dm_k308_lr0.1_it289.pt 1337 x1B_dm_lr0.1_u30
+gw 36 $RUNS_DIR/budget_buffers/x1_gw_dm_k36_lr1_it338.pt 42 x1B_dm_lr1_u300
+gw 36 $RUNS_DIR/budget_buffers/x1_gw_dm_k36_lr1_it338.pt 1337 x1B_dm_lr1_u300
+read2016 418 $RUNS_DIR/budget_buffers/x1_read2016_dm_k418_lr0.1_it392.pt 42 x1B_dm_lr0.1_u30
+read2016 418 $RUNS_DIR/budget_buffers/x1_read2016_dm_k418_lr0.1_it392.pt 1337 x1B_dm_lr0.1_u30
+lam 991 $RUNS_DIR/budget_buffers/x1_lam_dm_k991_lr1_it930.pt 42 x1B_dm_lr1_u30
+lam 991 $RUNS_DIR/budget_buffers/x1_lam_dm_k991_lr1_it930.pt 1337 x1B_dm_lr1_u30
+iam 308 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr1_it289.pt 42 x1B_dc_lr1_u30
+iam 308 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr1_it289.pt 1337 x1B_dc_lr1_u30
+gw 36 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr1_it34.pt 42 x1B_dc_lr1_u30
+gw 36 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr1_it34.pt 1337 x1B_dc_lr1_u30

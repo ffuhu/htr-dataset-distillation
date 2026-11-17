@@ -1,0 +1,53 @@
+defaults:
+  - data@real_dataset: IAM
+  - models@inner_model: CRNN_CTC_reduced_wr8
+  - loss_functions@loss_function: CTCLoss
+
+  - _self_
+
+# --- MTT-CTC on IAM, full training pool (6161 lines), so that the budget sweep is
+# comparable with GW/READ2016/LAM. Includes the numerical-stability fix of
+# src/distill_mtt_ctc.py (skip-on-nonfinite + clip_grad_norm_ + inner_lr clamp). ---
+real_dataset:
+  splits: [train]
+  shuffle: True
+
+channels: 1
+batch_size: ${K}
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+# --- Expert trajectory buffer (train_expert_wr8.yaml + callbacks.ExpertSnapshotter,
+# trained on the FULL IAM pool -- 6161 lines). Generate it first with
+# slurm/lanzar_mtt_experts.sbatch. ---
+expert_dir: ???
+
+K: 100
+cluster_file: null
+
+# The IAM wr8 full-pool model converged at epoch 114 -- max_start_epoch covers the early
+# half of trajectories of that length.
+max_start_epoch: 60
+
+expert_epochs_ahead: 1
+
+outer_iterations: 2000
+inner_steps: 20
+inner_batch_size: 8
+
+pixel_lr: 0.1
+mtt_inner_lr_init: 0.01
+mtt_inner_lr_lr: 1.0e-3
+mtt_inner_lr_max: 0.1  # upper bound of inner_lr (null = no bound, as in the original MTT; E13)
+
+log_every: 10
+
+seed: 42
+
+buffer_path: outputs/distill/iam_mtt_ctc_wr8.pt

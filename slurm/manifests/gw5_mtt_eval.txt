@@ -1,0 +1,12 @@
+gw 4 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k4_s7.pt 7 gw5_mtt
+gw 4 $RUNS_DIR/budget_buffers/gw_mtt_init_k4_s7.pt 7 gw5_mtt_init
+gw 4 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k4_s123.pt 123 gw5_mtt
+gw 4 $RUNS_DIR/budget_buffers/gw_mtt_init_k4_s123.pt 123 gw5_mtt_init
+gw 18 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k18_s7.pt 7 gw5_mtt
+gw 18 $RUNS_DIR/budget_buffers/gw_mtt_init_k18_s7.pt 7 gw5_mtt_init
+gw 18 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k18_s123.pt 123 gw5_mtt
+gw 18 $RUNS_DIR/budget_buffers/gw_mtt_init_k18_s123.pt 123 gw5_mtt_init
+gw 36 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k36_s7.pt 7 gw5_mtt
+gw 36 $RUNS_DIR/budget_buffers/gw_mtt_init_k36_s7.pt 7 gw5_mtt_init
+gw 36 $RUNS_DIR/budget_buffers/gw_mtt_ctc_k36_s123.pt 123 gw5_mtt
+gw 36 $RUNS_DIR/budget_buffers/gw_mtt_init_k36_s123.pt 123 gw5_mtt_init

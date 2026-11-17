@@ -1,0 +1,6 @@
+_target_: data.augmentation.full_pipeline
+
+transform_chance: 0.5
+translation: [0.05, 0.05]
+rotation_degrees: [-3.0, 3.0]
+grayscale: ${eval:"${channels} == 1"}

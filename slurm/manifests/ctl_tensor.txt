@@ -1,0 +1,3 @@
+iam 308 $RUNS_DIR/budget_buffers/x2_iam_rand_zeroiter_k308.pt 0 ctl_rand_zeroiter_tensor_freezer
+iam 308 $RUNS_DIR/budget_buffers/x2_iam_rand_zeroiter_k308.pt 42 ctl_rand_zeroiter_tensor_freezer
+iam 308 $RUNS_DIR/budget_buffers/x2_iam_rand_zeroiter_k308.pt 1337 ctl_rand_zeroiter_tensor_freezer

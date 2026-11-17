@@ -1,0 +1,6 @@
+iam 308 dc 0.1 32 289 2888 28875 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr0.1.pt
+iam 308 dc 1 32 289 2888 28875 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr1.pt
+gw 36 dc 0.1 32 34 338 3375 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr0.1.pt
+gw 36 dc 1 32 34 338 3375 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr1.pt
+read2016 418 dc 0.1 32 392 3919 39188 $RUNS_DIR/budget_buffers/x1b_read2016_dc_k418_lr0.1.pt
+read2016 418 dc 1 32 392 3919 39188 $RUNS_DIR/budget_buffers/x1b_read2016_dc_k418_lr1.pt

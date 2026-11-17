@@ -1,0 +1,27 @@
+defaults:
+  - .@train_datasets.lam: LAM
+  - augmentation@train_datasets.lam.img_transform: default
+
+  - .@val_datasets.lam: LAM
+
+  - .@test_datasets.lam: LAM
+
+  - _self_
+
+_target_: data.DataModule
+
+# Budget sweep: random lines, K=1983 (~10% of the training pool, 19829 lines).
+train_datasets:
+  lam:
+    shuffle: True
+    splits: [train]
+    filter_func:
+      _target_: data.huggingface.allow_indices
+      _partial_: true
+      allowed_indices: ${load:data/LAM/random_baseline_K1983_indices.yaml}
+val_datasets:
+  lam:
+    splits: [val]
+test_datasets:
+  lam:
+    splits: [test]

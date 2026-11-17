@@ -1,0 +1,24 @@
+defaults:
+  # no_aug_tensor = identity (historical behaviour); to re-evaluate hard-label buffers with
+  # the same augmentation as the real-line baseline (RandomAffine is worth ~15-16 CER points),
+  # override to default_tensor:
+  #   data/augmentation@data_module.train_datasets.synthetic.img_transform=default_tensor
+  - augmentation@img_transform: no_aug_tensor
+
+  - _self_
+
+_target_: data.SyntheticCTC.SyntheticCTCDataset
+
+collate_fn:
+  _target_: data.TranscriptionCTC.collate_fn
+  _partial_: True
+
+buffer_path: ???
+vocabulary_file: IAM/train
+
+splits: [synthetic]
+
+shuffle: False # Set to true on training split
+num_workers: 0
+persistent_workers: False
+batch_size: ${batch_size}

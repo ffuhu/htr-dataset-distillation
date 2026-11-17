@@ -1,0 +1,38 @@
+defaults:
+  - augmentation@img_transform: no_aug
+  - prep@prepare_data: htr_lines
+
+  - _self_
+
+_target_: data.TranscriptionCTC.HFCTC
+
+collate_fn:
+  _target_: data.TranscriptionCTC.collate_fn
+  _partial_: True
+
+root: parquet
+data_files:
+  train: datasets/IAM/parquet/train.parquet
+  val_1: datasets/IAM/parquet/val_1.parquet
+  val_2: datasets/IAM/parquet/val_2.parquet
+  test: datasets/IAM/parquet/test.parquet
+
+splits: ???
+
+# img_transform: ???
+# target_transform: ???
+
+initial_symbols: {<PAD>: 0, <CTC>: 1}
+special_symbols: [<PAD>, <CTC>]
+
+map_fn_kwargs:
+  fixed_height: 64
+  tokenize: True # False for TrOCR
+
+shuffle: False # Set to true on training split
+num_workers: 8
+persistent_workers: False
+batch_size: ${batch_size}
+
+stats_file: IAM/${.splits[0]}
+vocabulary_file: IAM/${.splits[0]}

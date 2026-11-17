@@ -1,0 +1,8 @@
+defaults:
+  - _self_
+
+_target_: lightning.pytorch.Trainer
+
+max_epochs: ???
+check_val_every_n_epoch: ???
+callbacks: ${oc.dict.values:trainer_callbacks}

@@ -1,0 +1,17 @@
+defaults:
+  - data@real_dataset: IAM
+
+  - _self_
+
+# Uses the FULL IAM training pool (6161 lines), like GW/READ2016/LAM -- needed so that the
+# budget percentages are comparable across the 4 datasets.
+real_dataset:
+  splits: [train]
+  shuffle: False
+
+channels: 1
+batch_size: 1
+
+k: ???
+seed: 42
+output_file: ???

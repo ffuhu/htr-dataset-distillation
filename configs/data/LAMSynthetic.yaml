@@ -1,0 +1,20 @@
+defaults:
+  - augmentation@img_transform: no_aug_tensor
+
+  - _self_
+
+_target_: data.SyntheticCTC.SyntheticCTCDataset
+
+collate_fn:
+  _target_: data.TranscriptionCTC.collate_fn
+  _partial_: True
+
+buffer_path: ???
+vocabulary_file: LAM/train
+
+splits: [synthetic]
+
+shuffle: False
+num_workers: 0
+persistent_workers: False
+batch_size: ${batch_size}

@@ -1,0 +1,3 @@
+_target_: data.augmentation.no_aug
+
+grayscale: ${eval:"${channels} == 1"}

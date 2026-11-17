@@ -1,0 +1,26 @@
+defaults:
+  - train_expert_wr8
+  - override optimizers@optimizer: SGD
+  - override data/augmentation@data_module.train_datasets.iam.img_transform: no_aug
+
+  - _self_
+
+# E13 (pre-registered): IAM experts with SGD instead of Adam, as in the original MTT
+# (buffer.py: SGD, momentum 0, l2 0), without augmentation (the MTT student does not use it)
+# and with a parameter snapshot every `every_n_steps` steps instead of every epoch. Same
+# recipe as train_expert_wr8.yaml otherwise. lr, batch_size, seed and dirpath on the command
+# line (slurm/lanzar_e13_experts.sbatch).
+
+dataset_name: iam_expert_sgd_trajectory
+
+batch_size: ???
+
+optimizer:
+  lr: ???
+
+trainer:
+  max_epochs: 20
+
+trainer_callbacks:
+  expert_snapshotter:
+    every_n_steps: 100

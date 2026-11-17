@@ -1,0 +1,23 @@
+defaults:
+  - _self_
+
+_target_: models.others.RNN
+
+modules:
+  rnn:
+    _target_: torch.nn.LSTM
+    batch_first: true
+    bidirectional: true
+    dropout: 0.0 # ignored by LSTM with num_layers=1; inter-layer dropout is moot here
+    hidden_size: 64
+    input_size: ???
+    num_layers: 1
+
+  dropout:
+    _target_: torch.nn.Dropout
+    p: 0.5
+
+  out_projection:
+    _target_: torch.nn.Linear
+    in_features: ${eval:"((1*${..rnn.bidirectional})+1)*${..rnn.hidden_size}"}
+    out_features: ???

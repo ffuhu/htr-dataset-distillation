@@ -1,0 +1,52 @@
+defaults:
+  - data@real_dataset: GW
+  - models@inner_model: CRNN_CTC_reduced_wr8
+  - loss_functions@loss_function: CTCLoss
+
+  - _self_
+
+# --- MTT-CTC on GW (same implementation as distill_iam_mtt_ctc_wr8.yaml, hyperparameters
+# not re-tuned -- direct transfer, like the evaluation recipe). ---
+real_dataset:
+  splits: [train]
+  shuffle: True
+
+channels: 1
+batch_size: ${K}
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+# --- Expert trajectory buffer (train_expert_gw_wr8.yaml + callbacks.ExpertSnapshotter,
+# trained on the FULL GW pool -- 357 lines). Generate it first with
+# slurm/lanzar_mtt_experts_gw.sbatch. ---
+expert_dir: ???
+
+K: 20  # default; the launchers pass K
+cluster_file: null  # random init, same criterion as DC/DM on GW
+
+# The GW wr8 full-pool model converged at epoch ~79, stopped by patience at 84 --
+# max_start_epoch covers the early half, same criterion as IAM (60/114).
+max_start_epoch: 40
+
+expert_epochs_ahead: 1
+
+outer_iterations: 2000
+inner_steps: 20
+inner_batch_size: 8  # same criterion as IAM: = actual batch_size of train_expert_gw_wr8.yaml
+
+pixel_lr: 0.1
+mtt_inner_lr_init: 0.01
+mtt_inner_lr_lr: 1.0e-3
+mtt_inner_lr_max: 0.1  # upper bound of inner_lr (null = no bound, as in the original MTT; E13)
+
+log_every: 10
+
+seed: 42
+
+buffer_path: outputs/distill/gw_mtt_ctc.pt

@@ -1,0 +1,27 @@
+defaults:
+  - .@train_datasets.iam: IAM
+  - augmentation@train_datasets.iam.img_transform: default
+
+  - .@val_datasets.iam: IAM
+
+  - .@test_datasets.iam: IAM
+
+  - _self_
+
+_target_: data.DataModule
+
+# Budget sweep: text medoids, K=62 (~1% of the training pool, 6161 lines).
+train_datasets:
+  iam:
+    shuffle: True
+    splits: [train]
+    filter_func:
+      _target_: data.huggingface.allow_indices
+      _partial_: true
+      allowed_indices: ${load:data/IAM/medoids_k62_indices.yaml}
+val_datasets:
+  iam:
+    splits: [val_1, val_2]
+test_datasets:
+  iam:
+    splits: [test]

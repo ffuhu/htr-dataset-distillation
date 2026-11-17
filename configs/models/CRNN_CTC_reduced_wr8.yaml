@@ -1,0 +1,30 @@
+defaults:
+  - .@modules.encoder: CNN_reduced_wr8
+  - .@modules.decoder: RNN_reduced
+
+  - _self_
+
+_target_: models.others.CRNN_CTC
+_convert_: all
+_recursive_: True
+
+pad: ${t2i[<PAD>]}
+blank: ${t2i[<CTC>]}
+
+max_h: ${max_h}
+max_w: ${max_w}
+max_l: ${max_l}
+
+channels: ${channels}
+vocabulary_size: ${vocabulary_size}
+
+modules:
+  encoder:
+    in_channels: ${...channels}
+
+  decoder:
+    modules:
+      rnn:
+        input_size: ${mul:${int_div:${.....max_h},${....encoder.height_reduction}},${....encoder.out_channels}}
+      out_projection:
+        out_features: ${.....vocabulary_size}

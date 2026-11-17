@@ -1,0 +1,56 @@
+defaults:
+  - data@data_module: READ2016MedoidsK418
+
+  - models@model_wrapper: CRNN_CTC_Wrapper
+
+  - loss_functions@loss_function: CTCLoss
+  - optimizers@optimizer: Adam
+
+  - trainer@trainer: default
+  - trainer@trainer_callbacks.checkpointer: checkpointer
+  - trainer@trainer_callbacks.early_stopping: early_stopping
+
+  - logger@trainer.logger: wandb
+
+  - _self_
+
+source_name: scratch
+dataset_name: read2016_medoides_k418
+
+validation_set: val
+
+experiment_id: CRNN_CTC-${source_name}-${dataset_name}_${validation_set}
+run_name: CRNN_CTC ${source_name} -> ${dataset_name} (${validation_set})
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+channels: 1
+batch_size: 8
+train: True
+
+seed: 42
+weights: ???
+from_checkpoint: ???
+checkpoint_after_training: ???
+
+extra:
+  _target_: extras.default
+  _partial_: True
+
+trainer:
+  min_epochs: 0
+  max_epochs: 10000
+  min_steps: 0
+  check_val_every_n_epoch: 5
+  logger:
+    name: ${run_name}
+
+trainer_callbacks:
+  checkpointer:
+    filename: ${experiment_id}

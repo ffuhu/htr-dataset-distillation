@@ -1,0 +1,29 @@
+defaults:
+  - .@train_datasets.read2016: READ2016
+  - augmentation@train_datasets.read2016.img_transform: default
+
+  - .@val_datasets.read2016: READ2016
+
+  - .@test_datasets.read2016: READ2016
+
+  - _self_
+
+_target_: data.DataModule
+
+train_datasets:
+  read2016:
+    shuffle: True
+    splits: [train]
+    # 12/8366 lines (0.14%) are infeasible at wr8 -- see
+    # data/READ2016/infeasible_wr8_indices.yaml. Excluded, not rescaled (same criterion as
+    # for IAM).
+    filter_func:
+      _target_: data.huggingface.forbid_indices
+      _partial_: true
+      forbidden_indices: ${load:data/READ2016/infeasible_wr8_indices.yaml}
+val_datasets:
+  read2016:
+    splits: [val]
+test_datasets:
+  read2016:
+    splits: [test]

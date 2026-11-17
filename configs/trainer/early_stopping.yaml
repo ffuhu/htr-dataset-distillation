@@ -1,0 +1,6 @@
+_target_: lightning.pytorch.callbacks.early_stopping.EarlyStopping
+monitor: ${validation_set}/SER
+mode: min
+verbose: True
+min_delta: 0.01
+patience: 5

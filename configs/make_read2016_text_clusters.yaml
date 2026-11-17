@@ -1,0 +1,19 @@
+defaults:
+  - data@real_dataset: READ2016
+
+  - _self_
+
+real_dataset:
+  splits: [train]
+  shuffle: False
+  filter_func:
+    _target_: data.huggingface.forbid_indices
+    _partial_: true
+    forbidden_indices: ${load:data/READ2016/infeasible_wr8_indices.yaml}
+
+channels: 1
+batch_size: 1
+
+k: 100
+seed: 42
+output_file: data/READ2016/text_clusters_k100.yaml

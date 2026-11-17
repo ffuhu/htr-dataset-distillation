@@ -1,0 +1,12 @@
+iam 62 iam_aleatorio_k62_default data/IAM/x5_random_K62_s0_indices.yaml 0 x5_random_sub0
+iam 62 iam_aleatorio_k62_default data/IAM/x5_random_K62_s42_indices.yaml 42 x5_random_sub42
+iam 62 iam_aleatorio_k62_default data/IAM/x5_random_K62_s1337_indices.yaml 1337 x5_random_sub1337
+gw 4 gw_aleatorio_k4_default data/GW/x5_random_K4_s0_indices.yaml 0 x5_random_sub0
+gw 4 gw_aleatorio_k4_default data/GW/x5_random_K4_s42_indices.yaml 42 x5_random_sub42
+gw 4 gw_aleatorio_k4_default data/GW/x5_random_K4_s1337_indices.yaml 1337 x5_random_sub1337
+read2016 84 read2016_aleatorio_k84_default data/READ2016/x5_random_K84_s0_indices.yaml 0 x5_random_sub0
+read2016 84 read2016_aleatorio_k84_default data/READ2016/x5_random_K84_s42_indices.yaml 42 x5_random_sub42
+read2016 84 read2016_aleatorio_k84_default data/READ2016/x5_random_K84_s1337_indices.yaml 1337 x5_random_sub1337
+lam 198 lam_aleatorio_k198_default data/LAM/x5_random_K198_s0_indices.yaml 0 x5_random_sub0
+lam 198 lam_aleatorio_k198_default data/LAM/x5_random_K198_s42_indices.yaml 42 x5_random_sub42
+lam 198 lam_aleatorio_k198_default data/LAM/x5_random_K198_s1337_indices.yaml 1337 x5_random_sub1337

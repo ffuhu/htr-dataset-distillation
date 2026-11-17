@@ -1,0 +1,3 @@
+iam 308 iam_aleatorio_k308_default data/IAM/random_baseline_K308_indices.yaml 0 ctl_random_pil_freezer
+iam 308 iam_aleatorio_k308_default data/IAM/random_baseline_K308_indices.yaml 42 ctl_random_pil_freezer
+iam 308 iam_aleatorio_k308_default data/IAM/random_baseline_K308_indices.yaml 1337 ctl_random_pil_freezer

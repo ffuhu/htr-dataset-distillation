@@ -1,0 +1,20 @@
+defaults:
+  - .@train_datasets.synthetic: LAMSynthetic
+
+  - .@val_datasets.lam: LAM
+
+  - .@test_datasets.lam: LAM
+
+  - _self_
+
+_target_: data.DataModule
+
+train_datasets:
+  synthetic:
+    shuffle: True
+val_datasets:
+  lam:
+    splits: [val]
+test_datasets:
+  lam:
+    splits: [test]

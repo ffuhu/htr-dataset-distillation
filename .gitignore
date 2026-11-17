@@ -1,0 +1,13 @@
+# Datasets (not redistributed) and run artifacts
+datasets/
+outputs/
+wandb/
+*.log
+
+# Written by `python src/code_version.py write` (see README)
+CODE_VERSION
+
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store

@@ -1,0 +1,6 @@
+iam 308 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr0.1_it2888.pt 0 x1b_dc_lr0.1_u300
+iam 308 $RUNS_DIR/budget_buffers/x1b_iam_dc_k308_lr1_it2888.pt 0 x1b_dc_lr1_u300
+gw 36 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr0.1_it338.pt 0 x1b_dc_lr0.1_u300
+gw 36 $RUNS_DIR/budget_buffers/x1b_gw_dc_k36_lr1_it338.pt 0 x1b_dc_lr1_u300
+read2016 418 $RUNS_DIR/budget_buffers/x1b_read2016_dc_k418_lr0.1_it3919.pt 0 x1b_dc_lr0.1_u300
+read2016 418 $RUNS_DIR/budget_buffers/x1b_read2016_dc_k418_lr1_it3919.pt 0 x1b_dc_lr1_u300

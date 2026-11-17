@@ -1,0 +1,72 @@
+defaults:
+  - data@data_module: IAMDM
+
+  - models@model_wrapper: CRNN_CTC_Wrapper_reduced_wr8
+
+  - loss_functions@loss_function: CTCLoss
+  - optimizers@optimizer: Adam
+
+  - trainer@trainer: default
+  - trainer@trainer_callbacks.checkpointer: checkpointer
+  - trainer@trainer_callbacks.early_stopping: early_stopping
+
+  - logger@trainer.logger: wandb
+
+  - _self_
+
+# MTT: trains ONE expert trajectory on the full IAM pool (6161 training lines), saving a
+# snapshot of the parameters after every epoch via callbacks.ExpertSnapshotter. EXACTLY the
+# same recipe as the IAM wr8 full-pool model (iam_default.yaml +
+# models@model_wrapper=CRNN_CTC_Wrapper_reduced_wr8, no lr/epoch overrides) -- the
+# trajectories must represent "how a normally trained model evolves", not an ad-hoc recipe.
+# That model converged at epoch 114 (val SER 12.88), stopped by patience at 139 -- the
+# expected order of magnitude here too.
+#
+# `seed` and `trainer_callbacks.expert_snapshotter.dirpath` are passed on the command line,
+# one per trajectory (see slurm/lanzar_mtt_experts.sbatch).
+
+source_name: scratch
+dataset_name: iam_expert_trajectory
+
+validation_set: val_1_val_2
+
+experiment_id: CRNN_CTC-${source_name}-${dataset_name}_${validation_set}
+run_name: CRNN_CTC ${source_name} -> ${dataset_name} (${validation_set})
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+channels: 1
+batch_size: 8
+train: True
+
+seed: ???
+weights: ???
+from_checkpoint: ???
+checkpoint_after_training: ???
+
+extra:
+  _target_: extras.default
+  _partial_: True
+
+trainer:
+  min_epochs: 0
+  max_epochs: 10000
+  min_steps: 0
+  check_val_every_n_epoch: 5
+  logger:
+    name: ${run_name}
+
+trainer_callbacks:
+  checkpointer:
+    filename: ${experiment_id}
+  expert_snapshotter:
+    _target_: callbacks.ExpertSnapshotter
+    dirpath: ???
+    every_n_epochs: 1
+    max_epoch: null  # optional cap to avoid saving epochs MTT never reads (see callbacks.ExpertSnapshotter)

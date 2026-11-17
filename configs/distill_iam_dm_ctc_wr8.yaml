@@ -1,0 +1,41 @@
+defaults:
+  - data@real_dataset: IAM
+  - models@embedding_encoder: CNN_reduced
+
+  - _self_
+
+# --- DM-CTC on IAM, protocol consistent with GW/READ2016/LAM
+# (distill_{gw,read2016,lam}_dm_ctc.yaml): full training pool (6161 lines). ---
+real_dataset:
+  splits: [train]
+  shuffle: True
+
+channels: 1
+batch_size: ${matching_batch_size}
+
+embedding_encoder:
+  in_channels: ${channels}
+
+encoder_source: random
+teacher_ckpt: null
+
+dsa: false
+dsa_rotation_degrees: 3.0
+dsa_translation: 0.05
+dsa_chance: 0.2
+
+K: 100
+
+cluster_file: null
+outer_iterations: 2000
+matching_batch_size: 32
+
+pooling: mean
+encoder_resample_every: 20
+
+syn_lr: 0.1
+
+log_every: 50
+seed: 42
+
+buffer_path: outputs/distill/iam_dm_ctc_wr8.pt

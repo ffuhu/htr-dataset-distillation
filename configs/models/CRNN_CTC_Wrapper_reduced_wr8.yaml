@@ -1,0 +1,11 @@
+defaults:
+  - .@model: CRNN_CTC_reduced_wr8
+
+_target_: models.CRNN_CTC_Wrapper
+_recursive_: False
+_args_: []
+
+loss_function_config: ${loss_function}
+optimizer_config: ${optimizer}
+t2i: ${t2i}
+i2t: ${i2t}

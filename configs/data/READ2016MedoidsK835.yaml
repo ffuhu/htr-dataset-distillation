@@ -1,0 +1,27 @@
+defaults:
+  - .@train_datasets.read2016: READ2016
+  - augmentation@train_datasets.read2016.img_transform: default
+
+  - .@val_datasets.read2016: READ2016
+
+  - .@test_datasets.read2016: READ2016
+
+  - _self_
+
+_target_: data.DataModule
+
+# Budget sweep: text medoids, K=835 (~10% of the training pool, 8354 lines).
+train_datasets:
+  read2016:
+    shuffle: True
+    splits: [train]
+    filter_func:
+      _target_: data.huggingface.allow_indices
+      _partial_: true
+      allowed_indices: ${load:data/READ2016/medoids_k835_indices.yaml}
+val_datasets:
+  read2016:
+    splits: [val]
+test_datasets:
+  read2016:
+    splits: [test]

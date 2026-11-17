@@ -1,0 +1,14 @@
+gw 4 gw_aleatorio_k4_default data/GW/random_baseline_K4_indices.yaml 7 gw5_aleatorio
+gw 4 gw_medoides_k4_default data/GW/medoids_k4_indices.yaml 7 gw5_medoides
+gw 4 gw_aleatorio_k4_default data/GW/random_baseline_K4_indices.yaml 123 gw5_aleatorio
+gw 4 gw_medoides_k4_default data/GW/medoids_k4_indices.yaml 123 gw5_medoides
+gw 18 gw_aleatorio_k18_default data/GW/random_baseline_K18_indices.yaml 7 gw5_aleatorio
+gw 18 gw_medoides_k18_default data/GW/medoids_k18_indices.yaml 7 gw5_medoides
+gw 18 gw_aleatorio_k18_default data/GW/random_baseline_K18_indices.yaml 123 gw5_aleatorio
+gw 18 gw_medoides_k18_default data/GW/medoids_k18_indices.yaml 123 gw5_medoides
+gw 36 gw_aleatorio_k36_default data/GW/random_baseline_K36_indices.yaml 7 gw5_aleatorio
+gw 36 gw_medoides_k36_default data/GW/medoids_k36_indices.yaml 7 gw5_medoides
+gw 36 gw_aleatorio_k36_default data/GW/random_baseline_K36_indices.yaml 123 gw5_aleatorio
+gw 36 gw_medoides_k36_default data/GW/medoids_k36_indices.yaml 123 gw5_medoides
+gw 4 gw_aleatorio_k4_default data/GW/x5_random_K4_s7_indices.yaml 7 x5_random_sub7
+gw 4 gw_aleatorio_k4_default data/GW/x5_random_K4_s123_indices.yaml 123 x5_random_sub123

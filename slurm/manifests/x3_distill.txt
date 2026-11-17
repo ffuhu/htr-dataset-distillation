@@ -1,0 +1,8 @@
+iam 308 1 0 $RUNS_DIR/experts/iam $RUNS_DIR/budget_buffers/x3_iam_mtt_k308_lr1_s0.pt
+iam 308 10 0 $RUNS_DIR/experts/iam $RUNS_DIR/budget_buffers/x3_iam_mtt_k308_lr10_s0.pt
+gw 36 1 0 $RUNS_DIR/experts/gw $RUNS_DIR/budget_buffers/x3_gw_mtt_k36_lr1_s0.pt
+gw 36 10 0 $RUNS_DIR/experts/gw $RUNS_DIR/budget_buffers/x3_gw_mtt_k36_lr10_s0.pt
+read2016 418 1 0 $RUNS_DIR/experts/read2016 $RUNS_DIR/budget_buffers/x3_read2016_mtt_k418_lr1_s0.pt
+read2016 418 10 0 $RUNS_DIR/experts/read2016 $RUNS_DIR/budget_buffers/x3_read2016_mtt_k418_lr10_s0.pt
+lam 991 1 0 $RUNS_DIR/experts/lam $RUNS_DIR/budget_buffers/x3_lam_mtt_k991_lr1_s0.pt
+lam 991 10 0 $RUNS_DIR/experts/lam $RUNS_DIR/budget_buffers/x3_lam_mtt_k991_lr10_s0.pt

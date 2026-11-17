@@ -1,0 +1,8 @@
+iam 308 $RUNS_DIR/budget_buffers/x3_iam_mtt_k308_lr1_s0.pt 0 x3_mtt_lr1
+iam 308 $RUNS_DIR/budget_buffers/x3_iam_mtt_k308_lr10_s0.pt 0 x3_mtt_lr10
+gw 36 $RUNS_DIR/budget_buffers/x3_gw_mtt_k36_lr1_s0.pt 0 x3_mtt_lr1
+gw 36 $RUNS_DIR/budget_buffers/x3_gw_mtt_k36_lr10_s0.pt 0 x3_mtt_lr10
+read2016 418 $RUNS_DIR/budget_buffers/x3_read2016_mtt_k418_lr1_s0.pt 0 x3_mtt_lr1
+read2016 418 $RUNS_DIR/budget_buffers/x3_read2016_mtt_k418_lr10_s0.pt 0 x3_mtt_lr10
+lam 991 $RUNS_DIR/budget_buffers/x3_lam_mtt_k991_lr1_s0.pt 0 x3_mtt_lr1
+lam 991 $RUNS_DIR/budget_buffers/x3_lam_mtt_k991_lr10_s0.pt 0 x3_mtt_lr10

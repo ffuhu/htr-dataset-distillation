@@ -1,0 +1,43 @@
+defaults:
+  - data@real_dataset: GW
+  - models@inner_model: CRNN_CTC_reduced_wr8
+  - loss_functions@loss_function: CTCLoss
+
+  - _self_
+
+# --- DC-CTC on GW. Full training pool (357 lines, 15/20 official pages -- see
+# prepare_gw.py), no need to subsample. ---
+real_dataset:
+  splits: [train]
+  shuffle: True
+
+channels: 1
+batch_size: ${matching_batch_size}
+
+max_h: ???
+max_w: ???
+max_l: ???
+
+t2i: ???
+i2t: ???
+vocabulary_size: ???
+
+K: 20  # synthetic buffer size (default; the launchers pass K)
+
+cluster_file: null
+outer_iterations: 2000
+matching_batch_size: 20  # = K, the whole pool fits in one matching batch
+
+inner_steps_every_n: 10
+inner_steps_count: 5
+
+reinit_every_n: 200
+
+syn_lr: 0.1
+inner_lr: 1.0e-3
+
+log_every: 50
+
+seed: 42
+
+buffer_path: outputs/distill/gw_dc_ctc.pt

@@ -1,0 +1,22 @@
+defaults:
+  - .@train_datasets.lam: LAM
+  - augmentation@train_datasets.lam.img_transform: default
+
+  - .@val_datasets.lam: LAM
+
+  - .@test_datasets.lam: LAM
+
+  - _self_
+
+_target_: data.DataModule
+
+train_datasets:
+  lam:
+    shuffle: True
+    splits: [train]
+val_datasets:
+  lam:
+    splits: [val]
+test_datasets:
+  lam:
+    splits: [test]

@@ -1,0 +1,6 @@
+_target_: lightning.pytorch.loggers.WandbLogger
+project: OMR CRNN-CTC
+entity: ${oc.env:WANDB_ENTITY} # W&B entity (user or team); required
+# group: ???
+# name: ???
+offline: False

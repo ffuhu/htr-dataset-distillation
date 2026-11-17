@@ -1,0 +1,27 @@
+defaults:
+  - .@train_datasets.gw: GW
+  - augmentation@train_datasets.gw.img_transform: default
+
+  - .@val_datasets.gw: GW
+
+  - .@test_datasets.gw: GW
+
+  - _self_
+
+_target_: data.DataModule
+
+# Budget sweep: text medoids, K=4 (~1% of the training pool, 357 lines).
+train_datasets:
+  gw:
+    shuffle: True
+    splits: [train]
+    filter_func:
+      _target_: data.huggingface.allow_indices
+      _partial_: true
+      allowed_indices: ${load:data/GW/medoids_k4_indices.yaml}
+val_datasets:
+  gw:
+    splits: [val]
+test_datasets:
+  gw:
+    splits: [test]

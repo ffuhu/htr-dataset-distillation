@@ -1,0 +1,12 @@
+iam 62 $RUNS_DIR/budget_buffers/iam_dc_diag_orig_k62.pt
+iam 308 $RUNS_DIR/budget_buffers/iam_dc_diag_orig_k308.pt
+iam 616 $RUNS_DIR/budget_buffers/iam_dc_diag_orig_k616.pt
+gw 4 $RUNS_DIR/budget_buffers/gw_dc_diag_orig_k4.pt
+gw 18 $RUNS_DIR/budget_buffers/gw_dc_diag_orig_k18.pt
+gw 36 $RUNS_DIR/budget_buffers/gw_dc_diag_orig_k36.pt
+read2016 84 $RUNS_DIR/budget_buffers/read2016_dc_diag_orig_k84.pt
+read2016 418 $RUNS_DIR/budget_buffers/read2016_dc_diag_orig_k418.pt
+read2016 835 $RUNS_DIR/budget_buffers/read2016_dc_diag_orig_k835.pt
+lam 198 $RUNS_DIR/budget_buffers/lam_dc_diag_orig_k198.pt
+lam 991 $RUNS_DIR/budget_buffers/lam_dc_diag_orig_k991.pt
+lam 1983 $RUNS_DIR/budget_buffers/lam_dc_diag_orig_k1983.pt

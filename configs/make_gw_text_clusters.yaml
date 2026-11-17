@@ -1,0 +1,15 @@
+defaults:
+  - data@real_dataset: GW
+
+  - _self_
+
+real_dataset:
+  splits: [train]
+  shuffle: False
+
+channels: 1
+batch_size: 1
+
+k: 20
+seed: 42
+output_file: data/GW/text_clusters_k20.yaml
